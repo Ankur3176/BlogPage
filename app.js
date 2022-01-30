@@ -1,4 +1,4 @@
-
+const lodash = require("lodash");
 const express = require("express");
 const ejs = require("ejs");
 
@@ -34,7 +34,23 @@ app.get("/contact",function(req,res)
 app.get("/compose",function(req,res)
 {
   res.render("compose");
-})
+});
+
+app.get("/posts/:title",function(req,res)
+{
+  var testtitle=req.params.title;
+  new_posts.forEach(function(new_post)
+  {
+    receivedtitle = new_post.newtitle; 
+    if(testtitle === receivedtitle)
+    {
+      console.log("match found!");
+    }
+
+  });
+
+});
+
 
 app.post("/compose",function(req,res)
 {
